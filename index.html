@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrono — Stopwatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-dot"></span>
+            CHRONO
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#laps">History</a>
+            <button class="menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-left">
+                <p class="eyebrow">TIME / 01</p>
+
+                <h1>
+                    STOP<br>
+                    <span>WATCH</span>
+                </h1>
+
+                <p class="description">
+                    Measure every second.<br>
+                    Make every moment count.
+                </p>
+            </div>
+
+            <div class="timer-area">
+
+                <div class="timer-ring">
+                    <div class="timer">
+                        <span id="hours">00</span>
+                        <span class="colon">:</span>
+                        <span id="minutes">00</span>
+                        <span class="colon">:</span>
+                        <span id="seconds">00</span>
+                    </div>
+
+                    <div class="milliseconds">
+                        <span id="milliseconds">000</span>
+                    </div>
+                </div>
+
+                <div class="status">
+                    <span id="status-dot"></span>
+                    <span id="status-text">READY TO BEGIN</span>
+                </div>
+
+                <div class="controls">
+                    <button id="startBtn" class="control primary">
+                        <span>▶</span> START
+                    </button>
+
+                    <button id="pauseBtn" class="control">
+                        PAUSE
+                    </button>
+
+                    <button id="lapBtn" class="control">
+                        LAP
+                    </button>
+
+                    <button id="resetBtn" class="control reset">
+                        RESET
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="history-section" id="laps">
+
+            <div class="history-heading">
+                <div>
+                    <p class="eyebrow">RECORD / 02</p>
+                    <h2>LAP HISTORY</h2>
+                </div>
+
+                <span id="lapCount">0 LAPS</span>
+            </div>
+
+            <div class="lap-container" id="lapContainer">
+
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">◷</div>
+                    <p>No laps recorded yet</p>
+                    <small>Press LAP while the stopwatch is running.</small>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <span>CHRONO</span>
+        <span>BUILT TO TRACK TIME</span>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
