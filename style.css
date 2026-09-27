@@ -558,19 +558,19 @@ footer span {
     }
 
     .clock {
-        width: 88vw;
-        height: 88vw;
+    width: 82vw;
+    height: 82vw;
 
-        max-width: 390px;
-        max-height: 390px;
-    }
+    max-width: 420px;
+    max-height: 420px;
+}
 
     .number {
     font-size: 16px;
 }
 
 /* Mobile clock number positions */
-.n12 { left: 50%; top: 15%; }
+.n12 { left: 50%; top: 5S%; }
 .n1  { left: 66%; top: 19%; }
 .n2  { left: 79%; top: 33%; }
 .n3  { left: 84%; top: 50%; }
@@ -583,16 +583,27 @@ footer span {
 .n10 { left: 21%; top: 33%; }
 .n11 { left: 34%; top: 19%; }
 
+.ticks {
+   inset: 1px;
+}
+.tick {
+    height: 10px;
+}
+
+.tick.hour {
+    height: 20px;
+}
+
     .hour-hand {
-        height: 75px;
+        height: 80px;
     }
 
     .minute-hand {
-        height: 105px;
+        height: 100px;
     }
 
     .second-hand {
-        height: 130px;
+        height: 120px;
     }
 
     .digital-time {
