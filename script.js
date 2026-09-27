@@ -4,22 +4,31 @@
 
 const ticks = document.getElementById("ticks");
 
-for (let i = 0; i < 60; i++) {
+function createTicks() {
 
-    const tick = document.createElement("div");
+    ticks.innerHTML = "";
+    const radius = ticks.clientWidth / 2 - 10;
 
-    tick.classList.add("tick");
+    for (let i = 0; i < 60; i++) {
 
-    // Every 5th tick is an hour marker
-    if (i % 5 === 0) {
-        tick.classList.add("hour");
+        const tick = document.createElement("div");
+
+        tick.classList.add("tick");
+
+        if (i % 5 === 0) {
+            tick.classList.add("hour");
+        }
+
+        tick.style.transform =
+            `rotate(${i * 6}deg) translateY(-${radius}px)`;
+
+        ticks.appendChild(tick);
     }
-
-    // Rotate each tick around the clock
-tick.style.transform =
-    `rotate(${i * 6}deg) translateY(-220px)`;
-    ticks.appendChild(tick);
 }
+
+createTicks();
+
+window.addEventListener("resize", createTicks);
 
 
 /* ------------------------------
