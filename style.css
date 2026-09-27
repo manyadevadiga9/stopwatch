@@ -1,0 +1,633 @@
+/* ------------------------------
+   BASIC RESET
+------------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #08090d;
+    color: #f2f2f5;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    justify-content: center;
+
+    overflow-x: hidden;
+}
+
+/* ------------------------------
+   MAIN CONTAINER
+------------------------------ */
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+
+header {
+    margin-bottom: 28px;
+}
+
+.logo {
+    font-size: 42px;
+    color: #a77cff;
+    margin-bottom: 8px;
+
+    filter: drop-shadow(0 0 12px rgba(150, 100, 255, 0.7));
+}
+
+header h1 {
+    font-size: 32px;
+    letter-spacing: 10px;
+    font-weight: 500;
+}
+
+header p {
+    margin-top: 10px;
+    color: #777b8b;
+    letter-spacing: 5px;
+    font-size: 13px;
+}
+
+/* ------------------------------
+   CLOCK
+------------------------------ */
+
+.clock {
+    width: min(500px, 82vw);
+    height: min(500px, 82vw);
+
+    margin: 0 auto 38px;
+
+    position: relative;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 45% 40%,
+            #171a22 0%,
+            #0e1016 55%,
+            #08090d 100%
+        );
+
+    border: 5px solid #252936;
+
+    box-shadow:
+        0 0 0 2px #101219,
+        0 0 25px rgba(116, 82, 255, 0.45),
+        0 0 55px rgba(60, 100, 255, 0.15),
+        inset 0 0 35px rgba(0, 0, 0, 0.9);
+
+    transition: 0.4s;
+}
+
+/* Running glow */
+
+.clock.running {
+    box-shadow:
+        0 0 0 2px #151722,
+        0 0 30px rgba(139, 92, 246, 0.65),
+        0 0 75px rgba(50, 120, 255, 0.25),
+        inset 0 0 35px rgba(0, 0, 0, 0.9);
+}
+
+/* ------------------------------
+   CLOCK TICKS
+------------------------------ */
+
+.ticks {
+    position: absolute;
+    inset: 13px;
+    border-radius: 50%;
+}
+
+.tick {
+    position: absolute;
+
+    width: 2px;
+    height: 9px;
+
+    background: #777c8c;
+
+    left: 50%;
+    top: 50%;
+
+    transform-origin: center 0;
+
+    /* Put the tick marks around the clock edge */
+    margin-left: -1px;
+    margin-top: -1px;
+}
+
+/* Main hour markers */
+
+.tick.hour {
+    width: 3px;
+    height: 15px;
+    background: #d9dbe3;
+}
+/* ------------------------------
+   CLOCK NUMBERS
+------------------------------ */
+
+.number {
+    position: absolute;
+
+    font-size: 20px;
+    color: #d9dbe3;
+
+    transform: translate(-50%, -50%);
+}
+
+.n12 {
+    left: 50%;
+    top: 10%;
+}
+
+.n1 {
+    left: 70%;
+    top: 13.5%;
+}
+
+.n2 {
+    left: 84%;
+    top: 27%;
+}
+
+.n3 {
+    left: 90%;
+    top: 50%;
+}
+
+.n4 {
+    left: 84%;
+    top: 73%;
+}
+
+.n5 {
+    left: 70%;
+    top: 87%;
+}
+
+.n6 {
+    left: 50%;
+    top: 90%;
+}
+
+.n7 {
+    left: 30%;
+    top: 87%;
+}
+
+.n8 {
+    left: 16%;
+    top: 73%;
+}
+
+.n9 {
+    left: 10%;
+    top: 50%;
+}
+
+.n10 {
+    left: 16%;
+    top: 27%;
+}
+
+.n11 {
+    left: 30%;
+    top: 13.5%;
+}
+
+/* ------------------------------
+   CLOCK HANDS
+------------------------------ */
+
+.hand {
+    position: absolute;
+
+    left: 50%;
+    bottom: 50%;
+
+    transform-origin: bottom center;
+
+    border-radius: 10px;
+
+    z-index: 5;
+}
+
+.hour-hand {
+    width: 6px;
+    height: 105px;
+
+    background: #d9dbe3;
+
+    transform: rotate(305deg);
+
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.minute-hand {
+    width: 4px;
+    height: 145px;
+
+    background: #b8bac5;
+
+    transform: rotate(55deg);
+}
+
+.second-hand {
+    width: 2px;
+    height: 175px;
+
+    background: #8d6cff;
+
+    transform: rotate(0deg);
+
+    box-shadow:
+        0 0 8px #8065ff,
+        0 0 15px rgba(128, 101, 255, 0.5);
+}
+
+/* Center */
+
+.center-dot {
+    position: absolute;
+
+    width: 19px;
+    height: 19px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #12141b;
+
+    border: 4px solid #8e6cff;
+
+    box-shadow: 0 0 12px rgba(140, 108, 255, 0.7);
+
+    z-index: 10;
+}
+
+/* ------------------------------
+   DIGITAL TIME
+------------------------------ */
+
+.digital-time {
+    position: absolute;
+
+    left: 50%;
+    top: 62%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 10px 20px;
+
+    border: 1px solid #303442;
+    border-radius: 30px;
+
+    background: rgba(8, 9, 13, 0.82);
+
+    white-space: nowrap;
+
+    z-index: 8;
+}
+
+.digital-time span {
+    font-size: clamp(18px, 3vw, 27px);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.digital-time small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #777b8b;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+/* ------------------------------
+   BUTTONS
+------------------------------ */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 40px;
+}
+
+.controls button {
+    min-width: 140px;
+    padding: 15px 25px;
+
+    border-radius: 30px;
+
+    background: #0d1017;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    border: 1px solid;
+}
+
+.controls button span {
+    margin-right: 8px;
+}
+
+/* Button colors */
+
+.start {
+    color: #43e6c2;
+    border-color: #28b99b !important;
+}
+
+.pause {
+    color: #b596ff;
+    border-color: #8061d9 !important;
+}
+
+.lap {
+    color: #55a9ff;
+    border-color: #367bc5 !important;
+}
+
+.reset {
+    color: #ff6c88;
+    border-color: #c94b65 !important;
+}
+
+/* Hover */
+
+.controls button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.25);
+}
+
+.start:hover {
+    box-shadow: 0 0 22px rgba(40, 220, 180, 0.25);
+}
+
+.pause:hover {
+    box-shadow: 0 0 22px rgba(140, 100, 255, 0.3);
+}
+
+.lap:hover {
+    box-shadow: 0 0 22px rgba(60, 150, 255, 0.3);
+}
+
+.reset:hover {
+    box-shadow: 0 0 22px rgba(255, 70, 100, 0.25);
+}
+
+.controls button:active {
+    transform: scale(0.95);
+}
+
+/* ------------------------------
+   LAP SECTION
+------------------------------ */
+
+.lap-section {
+    max-width: 680px;
+    margin: auto;
+
+    background: #0d1016;
+
+    border: 1px solid #272c38;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    text-align: left;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.lap-header {
+    padding: 20px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #282d39;
+
+    font-size: 18px;
+}
+
+.lap-header > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lap-icon {
+    color: #9875ff;
+    font-size: 25px;
+}
+
+#lapCount {
+    color: #777c8c;
+    font-size: 13px;
+}
+
+/* Lap list */
+
+.lap-list {
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.lap-row {
+    display: flex;
+    align-items: center;
+
+    padding: 16px 25px;
+
+    border-bottom: 1px solid #20242d;
+
+    animation: lapAppear 0.3s ease;
+}
+
+@keyframes lapAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lap-number {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    color: #b494ff;
+
+    border: 1px solid #7957dc;
+
+    margin-right: 18px;
+}
+
+.lap-name {
+    flex: 1;
+    color: #bfc2cc;
+}
+
+.lap-time {
+    color: #e7e8ee;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.empty-message {
+    padding: 35px;
+    text-align: center;
+    color: #555a69;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+    margin-top: 30px;
+
+    color: #555a69;
+
+    font-size: 13px;
+}
+
+footer span {
+    color: #8d6cff;
+}
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 25px 14px;
+    }
+
+    header h1 {
+        font-size: 24px;
+        letter-spacing: 6px;
+    }
+
+    header p {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .clock {
+        width: 88vw;
+        height: 88vw;
+
+        max-width: 390px;
+        max-height: 390px;
+    }
+
+    .number {
+        font-size: 16px;
+    }
+
+    .hour-hand {
+        height: 75px;
+    }
+
+    .minute-hand {
+        height: 105px;
+    }
+
+    .second-hand {
+        height: 130px;
+    }
+
+    .digital-time {
+        top: 62%;
+        padding: 8px 13px;
+    }
+
+    .digital-time span {
+        font-size: 16px;
+    }
+
+    .digital-time small {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+
+        padding: 0 10px;
+    }
+
+    .controls button {
+        min-width: 0;
+        width: 100%;
+
+        padding: 13px 8px;
+
+        font-size: 14px;
+    }
+
+    .lap-header {
+        padding: 16px;
+    }
+
+    .lap-row {
+        padding: 13px 16px;
+    }
+
+    .lap-number {
+        width: 34px;
+        height: 34px;
+        margin-right: 12px;
+    }
+
+    .lap-time {
+        font-size: 13px;
+    }
+}

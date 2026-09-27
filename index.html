@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- Heading -->
+        <header>
+            <div class="logo">⏱</div>
+            <h1>STOPWATCH</h1>
+            <p>Small moments. Big goals.</p>
+        </header>
+
+        <!-- Clock -->
+        <section class="clock">
+
+            <div class="ticks" id="ticks"></div>
+
+            <!-- Numbers -->
+            <span class="number n12">12</span>
+            <span class="number n1">1</span>
+            <span class="number n2">2</span>
+            <span class="number n3">3</span>
+            <span class="number n4">4</span>
+            <span class="number n5">5</span>
+            <span class="number n6">6</span>
+            <span class="number n7">7</span>
+            <span class="number n8">8</span>
+            <span class="number n9">9</span>
+            <span class="number n10">10</span>
+            <span class="number n11">11</span>
+
+            <!-- Clock hands -->
+            <div class="hand hour-hand" id="hourHand"></div>
+            <div class="hand minute-hand" id="minuteHand"></div>
+            <div class="hand second-hand" id="secondHand"></div>
+
+            <div class="center-dot"></div>
+
+            <!-- Digital time -->
+            <div class="digital-time">
+                <span id="display">00:00:00.000</span>
+                <small>HH : MM : SS . MS</small>
+            </div>
+
+        </section>
+
+        <!-- Controls -->
+        <section class="controls">
+
+            <button class="start" id="startBtn">
+                <span>▶</span> Start
+            </button>
+
+            <button class="pause" id="pauseBtn">
+                <span>Ⅱ</span> Pause
+            </button>
+
+            <button class="lap" id="lapBtn">
+                <span>⚑</span> Lap
+            </button>
+
+            <button class="reset" id="resetBtn">
+                <span>↻</span> Reset
+            </button>
+
+        </section>
+
+        <!-- Lap section -->
+        <section class="lap-section">
+
+            <div class="lap-header">
+                <div>
+                    <span class="lap-icon">☷</span>
+                    <span>Lap Times</span>
+                </div>
+
+                <span id="lapCount">Total Laps: 0</span>
+            </div>
+
+            <div class="lap-list" id="lapList">
+                <div class="empty-message">
+                    No laps recorded yet
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            Made with <span>♥</span> for better tomorrows
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
