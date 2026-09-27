@@ -7,8 +7,9 @@ const ticks = document.getElementById("ticks");
 function createTicks() {
 
     ticks.innerHTML = "";
-    const radius = ticks.clientWidth / 2 - 10;
-
+const radius = window.innerWidth <= 600
+    ? ticks.clientWidth / 2 - 25
+    : ticks.clientWidth / 2 - 10;
     for (let i = 0; i < 60; i++) {
 
         const tick = document.createElement("div");

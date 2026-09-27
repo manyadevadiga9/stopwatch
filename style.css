@@ -566,8 +566,22 @@ footer span {
     }
 
     .number {
-        font-size: 16px;
-    }
+    font-size: 16px;
+}
+
+/* Mobile clock number positions */
+.n12 { left: 50%; top: 15%; }
+.n1  { left: 66%; top: 19%; }
+.n2  { left: 79%; top: 33%; }
+.n3  { left: 84%; top: 50%; }
+.n4  { left: 79%; top: 67%; }
+.n5  { left: 66%; top: 81%; }
+.n6  { left: 50%; top: 84%; }
+.n7  { left: 34%; top: 81%; }
+.n8  { left: 21%; top: 67%; }
+.n9  { left: 16%; top: 50%; }
+.n10 { left: 21%; top: 33%; }
+.n11 { left: 34%; top: 19%; }
 
     .hour-hand {
         height: 75px;
